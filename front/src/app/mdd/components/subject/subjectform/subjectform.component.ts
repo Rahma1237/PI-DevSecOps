@@ -14,8 +14,8 @@ import { takeUntil } from 'rxjs/internal/operators/takeUntil';
 
 @Component({
   selector: 'app-subject-form',
-  templateUrl: './SubjectForm.component.html',
-  styleUrls: ['./SubjectForm.component.scss'],
+  templateUrl: './subjectform.component.html',
+  styleUrls: ['./subjectform.component.scss'],
 })
 export class SubjectFormComponent implements OnInit, AfterViewInit, OnDestroy {
   subjectForm!: FormGroup;
