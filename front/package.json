@@ -39,6 +39,18 @@
     "preset": "jest-preset-angular",
     "setupFilesAfterEnv": [
       "<rootDir>/setup-jest.ts"
+    ],
+    "moduleNameMapper": {
+      "^src/(.*)$": "<rootDir>/src/$1"
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/src/app/mdd/",
+      "<rootDir>/src/app/auth/",
+      "<rootDir>/src/app/core/components/header/",
+      "<rootDir>/src/app/core/services/subject.service.spec.ts",
+      "<rootDir>/src/app/shared/components/comments/",
+      "<rootDir>/src/app/app.component.spec.ts"
     ]
   }
   ,
