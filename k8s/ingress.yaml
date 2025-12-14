@@ -10,28 +10,24 @@ metadata:
 spec:
   ingressClassName: nginx
   tls:
-  - hosts:
-    - teamhalima.aymanekenbouch.online
-    - api.teamhalima.aymanekenbouch.online
-    secretName: app-tls-secret
+    - hosts:
+        - teamhalima.aymanekenbouch.online
+      secretName: app-tls-secret
   rules:
-  - host: teamhalima.aymanekenbouch.online
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: myapp-service
-            port:
-              number: 80
-  - host: api.teamhalima.aymanekenbouch.online
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: backend-service
-            port:
-              number: 5000
+    - host: teamhalima.aymanekenbouch.online
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: myapp-service
+                port:
+                  number: 80
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-service
+                port:
+                  number: 5000
