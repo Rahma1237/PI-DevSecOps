@@ -4,4 +4,4 @@ metadata:
   name: myapp-config
   namespace: team-halima # ⚠️ Utilisez votre namespace
 data:
-  NG_APP_API_URL: "https://api.teamhalima.aymanekenbouch.online"
+  NG_APP_API_URL: "https://teamhalima.aymanekenbouch.online"
