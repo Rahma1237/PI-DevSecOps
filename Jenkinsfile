@@ -2,7 +2,7 @@ pipeline {
   agent any
   environment {
     // Azure Container Registry - replace 'yourregistry' with your ACR name
-    ACR_NAME = 'yourregistry'
+    ACR_NAME = 'acrteam5'
     REGISTRY = "${ACR_NAME}.azurecr.io"
     BACK_IMAGE = "${REGISTRY}/pi-backend:${env.BUILD_NUMBER}"
     FRONT_IMAGE = "${REGISTRY}/pi-frontend:${env.BUILD_NUMBER}"
