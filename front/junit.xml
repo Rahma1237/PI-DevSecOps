@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest" tests="2" failures="0" errors="0" time="11.24">
+  <testsuite name="HomeComponent" errors="0" failures="0" skipped="0" timestamp="2025-12-14T17:20:22" time="8.019" tests="1">
+    <testcase classname="HomeComponent should create" name="HomeComponent should create" time="0.076">
+    </testcase>
+  </testsuite>
+  <testsuite name="NavigationItemsComponent" errors="0" failures="0" skipped="0" timestamp="2025-12-14T17:20:22" time="8.289" tests="1">
+    <testcase classname="NavigationItemsComponent should create" name="NavigationItemsComponent should create" time="0.337">
+    </testcase>
+  </testsuite>
+</testsuites>

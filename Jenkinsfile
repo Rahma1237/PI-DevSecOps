@@ -1,7 +1,9 @@
 pipeline {
   agent any
   environment {
-    REGISTRY = 'docker.io/your-org'
+    // Azure Container Registry - replace 'yourregistry' with your ACR name
+    ACR_NAME = 'yourregistry'
+    REGISTRY = "${ACR_NAME}.azurecr.io"
     BACK_IMAGE = "${REGISTRY}/pi-backend:${env.BUILD_NUMBER}"
     FRONT_IMAGE = "${REGISTRY}/pi-frontend:${env.BUILD_NUMBER}"
   }
@@ -13,8 +15,8 @@ pipeline {
     stage('Backend: Test & Package') {
       steps {
         dir('back') {
-          sh './mvnw -B test'
-          sh './mvnw -B -DskipTests=false package'
+          sh 'bash mvnw -B test'
+          sh 'bash mvnw -B -DskipTests=false package'
         }
       }
     }
@@ -74,20 +76,12 @@ PY
       }
     }
 
-    stage('Push Images') {
+    stage('Push Images to ACR') {
       steps {
-        withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-          sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
+        withCredentials([usernamePassword(credentialsId: 'acr-credentials', usernameVariable: 'ACR_USER', passwordVariable: 'ACR_PASS')]) {
+          sh 'echo $ACR_PASS | docker login ${REGISTRY} -u $ACR_USER --password-stdin'
           sh "docker push ${BACK_IMAGE}"
           sh "docker push ${FRONT_IMAGE}"
-        }
-      }
-    }
-
-    stage('Deploy to Kubernetes') {
-      steps {
-        withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
-          sh 'kubectl --kubeconfig=$KUBECONFIG apply -f k8s/'
         }
       }
     }
