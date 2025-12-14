@@ -77,6 +77,10 @@ PY
 
     stage('Push Images to ACR') {
       steps {
+        // Verify images exist before pushing
+        sh "docker images | grep pi-backend || echo 'Backend image not found'"
+        sh "docker images | grep pi-frontend || echo 'Frontend image not found'"
+        
         withCredentials([usernamePassword(credentialsId: 'acr-credentials', usernameVariable: 'ACR_USER', passwordVariable: 'ACR_PASS')]) {
           sh 'echo $ACR_PASS | docker login ${REGISTRY} -u $ACR_USER --password-stdin'
           sh "docker push ${BACK_IMAGE}"
