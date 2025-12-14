@@ -15,9 +15,8 @@ pipeline {
     stage('Backend: Test & Package') {
       steps {
         dir('back') {
-          sh 'chmod +x mvnw'
-          sh './mvnw -B test'
-          sh './mvnw -B -DskipTests=false package'
+          sh 'bash mvnw -B test'
+          sh 'bash mvnw -B -DskipTests=false package'
         }
       }
     }
