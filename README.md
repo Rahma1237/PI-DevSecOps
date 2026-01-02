@@ -224,7 +224,7 @@ Il est recommandé d’utiliser des **variables d’environnement** pour sécuri
 
 | Nom           | Rôle                   | GitHub                                        |
 |---------------|-----------------------|-----------------------------------------------|
-| Soufyan BASSEAID | Auteur   | [GitHub](https://github.com/Soufyan909)  |
+| Soufyan BASSEAID |  Contributor  | [GitHub](https://github.com/Soufyan909)  |
 | Thomas MICHEL | Contributor   | [GitHub](https://github.com/Micheeeeel)  |
 | OU-ICHEN RAHMA    | Contributor           | [GitHub](https://github.com/Rahma1237)     |
 | Romain Sessa    | Contributor           | [GitHub](https://github.com/romainsessa)     |
